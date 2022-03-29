@@ -1,0 +1,29 @@
+{
+  "name": "phone-backend",
+  "version": "0.0.1",
+  "description": "This repo houses all of my material related to going through the FullStack Open course, Part 3, developing the backend of the phonebook app.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabbason/fso-phone-backend.git"
+  },
+  "author": "Miles Abbason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mabbason/fso-phone-backend/issues"
+  },
+  "homepage": "https://github.com/mabbason/fso-phone-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
