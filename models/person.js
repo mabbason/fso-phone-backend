@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const url = process.env.MONGO_URI
- 
+
 console.log('connecting to', url)
 
 mongoose.connect(url)
@@ -22,7 +22,7 @@ const personSchema = new mongoose.Schema({
     type: String,
     validate: {
       validator: v => /\d{3}-\d{3}-\d{4}/.test(v),
-      message: `Number must fit format 123-123-1234`
+      message: 'Number must fit format 123-123-1234'
     },
     required: [true, 'User phone number required']
   },

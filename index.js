@@ -20,10 +20,10 @@ app.use(morgan((tokens, req, res) => {
   ].join(' ')
   const body = JSON.stringify(req.body)
   
-  return req.method === "POST" ? `${baseLog} ${body}` : baseLog 
+  return req.method === 'POST' ? `${baseLog} ${body}` : baseLog 
 }))
 
-app.disable('etag');
+app.disable('etag')
 
 app.get('/api/persons', (req, res) => {
   Person
@@ -47,26 +47,26 @@ app.get('/api/persons/:id', (req, res) => {
   const id = req.params.id
   Person.findById(id).then(person => {
     if (person)
-    res.json(person)
+      res.json(person)
   })
 })
 
 app.delete('/api/persons/:id', (req, res, next) => {
   const id = req.params.id
   Person.findByIdAndRemove(id)
-  .then(result => res.status(204).end())
-  .catch(error => next(error))
+    .then(_ => res.status(204).end())
+    .catch(error => next(error))
 })
 
 app.post('/api/persons', (req, res, next) => {
   const body = req.body
   
   if (body === undefined) {
-    return res.status(400).json({ error: "content missing" })
+    return res.status(400).json({ error: 'content missing' })
   }
   
   if (!body.name || !body.number) {
-    return res.status(400).json({ error: "must include name and number" })
+    return res.status(400).json({ error: 'must include name and number' })
   }
 
   const person = new Person({
@@ -83,18 +83,9 @@ app.put('/api/persons/:id', (req, res, next) => {
   const { name, number } = req.body
   
   if (req.body === undefined) {
-    return res.status(400).json({ error: "content missing" })
+    return res.status(400).json({ error: 'content missing' })
   }
-  
-  // if (!name || !number) {
-  //   return res.status(400).json({ error: "must include name and number" })
-  // }
-
-  // const person = {
-  //   name: body.name,
-  //   number: body.number,
-  // }
-     
+      
   const id = req.params.id
   Person.findByIdAndUpdate(
     id, 
